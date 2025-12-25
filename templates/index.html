@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Management Utility</title>
+</head>
+<body>
+    <h1>File Management Menu</h1>
+    <form method="POST">
+        <label>Source Folder:</label>
+        <input type="text" name="source_folder" placeholder="Default: Source"><br><br>
+
+        <label>Target Folder:</label>
+        <input type="text" name="target_folder" placeholder="Default: Target"><br><br>
+
+        <label>Choose an option:</label><br>
+        <input type="radio" name="choice" value="1"> Move files older than N days<br>
+        <input type="radio" name="choice" value="2"> Move files with a specific extension<br><br>
+
+        <div>
+            <label>Days Old:</label>
+            <input type="number" name="days_old" placeholder="Enter number of days">
+        </div>
+
+        <div>
+            <label>Extension:</label>
+            <input type="text" name="extension" placeholder=".txt, .log, .pdf">
+        </div>
+
+        <br>
+        <button type="submit">Run</button>
+    </form>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+          {% for msg in messages %}
+            <li>{{ msg }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+</body>
+</html>
