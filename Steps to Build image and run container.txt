@@ -1,0 +1,11 @@
+Steps to Build image and run container
+
+Command to buid image --   
+docker build -t automation-old-file-mover .
+
+Command to run image   
+docker run -p 5000:5000 -v ${PWD}/Source:/app/Source -v ${PWD}/Target:/app/Target automation-old-file-mover:latest
+
+To check running App in browser   
+
+http://127.0.0.1:5000/
