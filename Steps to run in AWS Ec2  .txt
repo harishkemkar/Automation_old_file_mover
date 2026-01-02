@@ -1,0 +1,26 @@
+run below form git bash from local machine  
+ssh -i "file_app_key.pem" ec2-user@ec2-52-66-79-128.ap-south-1.compute.amazonaws.com
+
+
+sudo yum install git -y
+sudo yum install python3-pip -y
+
+
+git clone https://github.com/harishkemkar/Automation_old_file_mover
+
+make sure repository is public   
+
+
+
+pip3 install -r requirements.txt << not working for this projects 
+
+install dependencies directly like  
+
+pip install flask 
+pip install pytest 
+
+run code -  from tge directory where cod is copies 
+create source and target folder 
+create sample files in  target folder  
+python3 main.py   
+
