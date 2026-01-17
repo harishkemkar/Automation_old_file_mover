@@ -5,6 +5,7 @@ pipeline {
         // Use your GitHub credentials ID from Jenkins
         GIT_CREDENTIALS = 'aa6df17f-c53e-482c-a244-850ffe34f949'
         REPO_URL = 'https://github.com/harishkemkar/Automation_old_file_mover.git'
+        VENV_PATH = "${WORKSPACE}/venv"
     }
 
     stages {
@@ -16,16 +17,23 @@ pipeline {
             }
         }
 
-        stage('Install Dependencies') {
+        stage('Setup Virtualenv & Install Dependencies') {
             steps {
-                sh 'pip install -r requirements.txt'
+                sh '''
+                    python3 -m venv ${VENV_PATH}
+                    . ${VENV_PATH}/bin/activate
+                    pip install --upgrade pip
+                    pip install -r requirements.txt
+                '''
             }
         }
 
         stage('Run Tests') {
             steps {
-                // Adjust if you have a tests/ folder or specific test runner
-                sh 'pytest --maxfail=1 --disable-warnings -q || true'
+                sh '''
+                    . ${VENV_PATH}/bin/activate
+                    pytest --maxfail=1 --disable-warnings -q || true
+                '''
             }
         }
 
