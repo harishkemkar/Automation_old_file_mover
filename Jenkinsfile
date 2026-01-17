@@ -18,6 +18,12 @@ pipeline {
         }
 
         stage('Setup Virtualenv & Install Dependencies') {
+            agent {
+                docker {
+                    image 'python:3.11'
+                    args '-v /var/run/docker.sock:/var/run/docker.sock'
+                }
+            }
             steps {
                 sh '''
                     python3 -m venv ${VENV_PATH}
@@ -29,6 +35,12 @@ pipeline {
         }
 
         stage('Run Tests') {
+            agent {
+                docker {
+                    image 'python:3.11'
+                    args '-v /var/run/docker.sock:/var/run/docker.sock'
+                }
+            }
             steps {
                 sh '''
                     . ${VENV_PATH}/bin/activate
