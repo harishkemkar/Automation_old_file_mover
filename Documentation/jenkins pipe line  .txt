@@ -1,0 +1,3 @@
+installing jenkins using d container image  - 
+
+docker pull jenkins/jenkins:lts
