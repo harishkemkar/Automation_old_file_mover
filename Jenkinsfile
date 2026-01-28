@@ -16,6 +16,7 @@ pipeline {
         stage('Set up Python Environment') {
             steps {
                 sh '''
+                cd /home/ec2-user
                 touch 2.txt
                 python3 -m venv venv
                 source venv/bin/activate
