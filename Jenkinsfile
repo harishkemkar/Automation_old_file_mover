@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        EC2_HOST = "ec2-user@<EC2-Public-IP>"   // Replace with your EC2 public IP
+        EC2_HOST = "ec2-user@35.154.224.150"   // Replace with your EC2 public IP
         REPO_URL = "https://github.com/harishkemkar/Automation_old_file_mover.git"
     }
 
