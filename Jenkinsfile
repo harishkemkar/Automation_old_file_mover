@@ -1,5 +1,9 @@
 pipeline {
-    agent any
+    agent { 
+        docker { 
+            image 'python:3.10' 
+            } 
+    }
 
     environment {
         EC2_HOST = "ec2-user@35.154.224.150"   // Replace with your EC2 public IP
