@@ -16,6 +16,7 @@ pipeline {
         stage('Set up Python Environment') {
             steps {
                 sh '''
+                touch 2.txt
                 python3 -m venv venv
                 source venv/bin/activate
                 pip install --upgrade pip
